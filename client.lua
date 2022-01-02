@@ -3,13 +3,11 @@ local PlayerJob = {}
 local isInMenu = false
 local sleep
 
-RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
-AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     PlayerJob = QBCore.Functions.GetPlayerData().job
 end)
 
-RegisterNetEvent('QBCore:Client:OnJobUpdate')
-AddEventHandler('QBCore:Client:OnJobUpdate', function(JobInfo)
+RegisterNetEvent('QBCore:Client:OnJobUpdate', function(JobInfo)
     PlayerJob = JobInfo
 end)
 
@@ -19,8 +17,7 @@ local menu2 = MenuV:CreateMenu(false, 'Society money', 'topright', 155, 0, 0, 's
 local menu3 = MenuV:CreateMenu(false, 'Employee Management', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'employees')
 local menu4 = MenuV:CreateMenu(false, 'Recruit Menu', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'recruit')
 
-RegisterNetEvent('qb-bossmenu:client:openMenu')
-AddEventHandler('qb-bossmenu:client:openMenu', function()
+RegisterNetEvent('qb-bossmenu:client:openMenu', function()
     for k, v in pairs(Config.Jobs) do
         if k == PlayerJob.name and PlayerJob.isboss then
             MenuV:OpenMenu(menu)
