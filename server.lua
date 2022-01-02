@@ -27,8 +27,7 @@ function GetAccount(account)
 end
 
 -- Withdraw Money
-RegisterServerEvent("qb-bossmenu:server:withdrawMoney")
-AddEventHandler("qb-bossmenu:server:withdrawMoney", function(amount)
+RegisterServerEvent("qb-bossmenu:server:withdrawMoney", function(amount)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local job = Player.PlayerData.job.name
@@ -49,8 +48,7 @@ AddEventHandler("qb-bossmenu:server:withdrawMoney", function(amount)
 end)
 
 -- Deposit Money
-RegisterServerEvent("qb-bossmenu:server:depositMoney")
-AddEventHandler("qb-bossmenu:server:depositMoney", function(amount)
+RegisterServerEvent("qb-bossmenu:server:depositMoney", function(amount)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local job = Player.PlayerData.job.name
@@ -69,8 +67,7 @@ AddEventHandler("qb-bossmenu:server:depositMoney", function(amount)
     TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Deposit Money', 'lightgreen', "Successfully deposited $" .. amount .. ' (' .. job .. ')', false)
 end)
 
-RegisterServerEvent("qb-bossmenu:server:addAccountMoney")
-AddEventHandler("qb-bossmenu:server:addAccountMoney", function(account, amount)
+RegisterServerEvent("qb-bossmenu:server:addAccountMoney", function(account, amount)
     if not Accounts[account] then
         Accounts[account] = 0
     end
@@ -80,8 +77,7 @@ AddEventHandler("qb-bossmenu:server:addAccountMoney", function(account, amount)
     SaveResourceFile(GetCurrentResourceName(), "./accounts.json", json.encode(Accounts), -1)
 end)
 
-RegisterServerEvent("qb-bossmenu:server:removeAccountMoney")
-AddEventHandler("qb-bossmenu:server:removeAccountMoney", function(account, amount)
+RegisterServerEvent("qb-bossmenu:server:removeAccountMoney", function(account, amount)
     if not Accounts[account] then
         Accounts[account] = 0
     end
@@ -129,8 +125,7 @@ QBCore.Functions.CreateCallback('qb-bossmenu:server:GetEmployees', function(sour
 end)
 
 -- Grade Change
-RegisterServerEvent('qb-bossmenu:server:updateGrade')
-AddEventHandler('qb-bossmenu:server:updateGrade', function(target, grade)
+RegisterServerEvent('qb-bossmenu:server:updateGrade', function(target, grade)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local Employee = QBCore.Functions.GetPlayerByCitizenId(target)
@@ -170,8 +165,7 @@ AddEventHandler('qb-bossmenu:server:updateGrade', function(target, grade)
 end)
 
 -- Fire Employee
-RegisterServerEvent('qb-bossmenu:server:fireEmployee')
-AddEventHandler('qb-bossmenu:server:fireEmployee', function(target)
+RegisterServerEvent('qb-bossmenu:server:fireEmployee', function(target)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local Employee = QBCore.Functions.GetPlayerByCitizenId(target)
@@ -211,8 +205,7 @@ AddEventHandler('qb-bossmenu:server:fireEmployee', function(target)
 end)
 
 -- Recruit Player
-RegisterServerEvent('qb-bossmenu:server:giveJob')
-AddEventHandler('qb-bossmenu:server:giveJob', function(recruit)
+RegisterServerEvent('qb-bossmenu:server:giveJob', function(recruit)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local Target = QBCore.Functions.GetPlayer(recruit)
